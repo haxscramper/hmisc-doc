@@ -117,8 +117,6 @@ function main() {
                 widthColLimits: (int, int) = (30, -1); maxWidthTotal: int = 80): void"><wbr />print<wbr />Two<wbr />Columns<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#getRandomBase64%2Cint"
     title="getRandomBase64(length: int): string"><wbr />get<wbr />Random<wbr />Base64<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#dedent%2Cstring"
-    title="dedent(multiline: string): string"><wbr />dedent<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#%3D%3D%2COption%5BT%5D%2CT"
     title="`==`[T](opt: Option[T]; val: T): bool"><wbr />`==`<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#%3D%3D%2C%2C"
@@ -139,6 +137,10 @@ function main() {
     title="endsWith(str: string; chars: set[char]): bool"><wbr />ends<wbr />With<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#startsWith%2Cstring%2Cset%5Bchar%5D"
     title="startsWith(str: string; chars: set[char]): bool"><wbr />starts<wbr />With<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#startsWith%2Cstring%2Cvarargs%5Bstring%5D"
+    title="startsWith(str: string; pref: varargs[string]): bool"><wbr />starts<wbr />With<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#endsWith%2Cstring%2Cvarargs%5Bstring%5D"
+    title="endsWith(str: string; suffixes: varargs[string]): bool"><wbr />ends<wbr />With<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#msgjoinImpl%2Cseq%5Bstring%5D"
     title="msgjoinImpl(args: seq[string]): string"><wbr />msgjoin<wbr />Impl<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#msgjoin%2Cvarargs%5Bstring%2C%5D"
@@ -174,6 +176,9 @@ function main() {
     title="mismatchStart(str1, str2: string): int"><wbr />mismatch<wbr />Start<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#joinl%2CopenArray%5Bstring%5D"
     title="joinl(inseq: openArray[string]): string"><wbr />joinl<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#joinql%2CopenArray%5Bstring%5D%2Cstring%2Cint%2Cstring"
+    title="joinql(inseq: openArray[string]; wrap: string = &quot;\&quot;&quot;; ident: int = 1;
+       identStr: string = &quot;  &quot;): string"><wbr />joinql<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#joinkv%2CopenArray%5B%5D%2Cstring"
     title="joinkv[K, V](t: openArray[(K, V)]; eqTok: string = &quot;=&quot;): seq[string]"><wbr />joinkv<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#joinq%2CopenArray%5Bstring%5D%2Cstring%2Cstring"
@@ -198,6 +203,8 @@ function main() {
     title="escapeHTML(input: string): string"><wbr />escape<wbr />HTML<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#enclosedIn%2Cstring%2Cstring"
     title="enclosedIn(s: string; delim: string): bool"><wbr />enclosed<wbr />In<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#dedent%2Cstring"
+    title="dedent(multiline: string): string"><wbr />dedent<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#curry1%2Cproc%28A%2CB%29%2CA"
     title="curry1[A, B, C](arg: proc (a: A; b: B): C; a: A): proc (b: B): C"><wbr />curry1<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#curry2%2Cproc%28A%2CB%29%2CB"
@@ -338,13 +345,6 @@ q                            =sd d fd fd =</pre>
 Return random base 64 string with <tt class="docutils literal"><span class="pre">length</span></tt> characters
 
 </dd>
-<a id="dedent,string"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#dedent%2Cstring"><span class="Identifier">dedent</span></a><span class="Other">(</span><span class="Identifier">multiline</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-
-Uniformly deindent multiline string
-
-</dd>
 <a id="==,Option[T],T"></a>
 <dt><pre><span class="Keyword">proc</span> <a href="#%3D%3D%2COption%5BT%5D%2CT"><span class="Identifier">`==`</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">opt</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
 <dd>
@@ -394,6 +394,20 @@ Return head and tail of the list
 </dd>
 <a id="startsWith,string,set[char]"></a>
 <dt><pre><span class="Keyword">func</span> <a href="#startsWith%2Cstring%2Cset%5Bchar%5D"><span class="Identifier">startsWith</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">chars</span><span class="Other">:</span> <span class="Identifier">set</span><span class="Other">[</span><span class="Identifier">char</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="startsWith,string,varargs[string]"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#startsWith%2Cstring%2Cvarargs%5Bstring%5D"><span class="Identifier">startsWith</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">pref</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="endsWith,string,varargs[string]"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#endsWith%2Cstring%2Cvarargs%5Bstring%5D"><span class="Identifier">endsWith</span></a><span class="Other">(</span><span class="Identifier">str</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">suffixes</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 
@@ -529,6 +543,14 @@ Join items using newlines
 <pre class="listing"><span class="Identifier">assert</span> <span class="Operator">@</span><span class="Other">[</span><span class="StringLit">&quot;as&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;bn&quot;</span><span class="Other">]</span><span class="Other">.</span><span class="Identifier">joinl</span> <span class="Operator">==</span> <span class="StringLit">&quot;as\nbn&quot;</span></pre>
 
 </dd>
+<a id="joinql,openArray[string],string,int,string"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#joinql%2CopenArray%5Bstring%5D%2Cstring%2Cint%2Cstring"><span class="Identifier">joinql</span></a><span class="Other">(</span><span class="Identifier">inseq</span><span class="Other">:</span> <span class="Identifier">openArray</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">wrap</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;\&quot;&quot;</span><span class="Other">;</span> <span class="Identifier">ident</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">1</span><span class="Other">;</span>
+           <span class="Identifier">identStr</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;  &quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+
+
+</dd>
 <a id="joinkv,openArray[],string"></a>
 <dt><pre><span class="Keyword">func</span> <a href="#joinkv%2CopenArray%5B%5D%2Cstring"><span class="Identifier">joinkv</span></a><span class="Other">[</span><span class="Identifier">K</span><span class="Other">,</span> <span class="Identifier">V</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">t</span><span class="Other">:</span> <span class="Identifier">openArray</span><span class="Other">[</span><span class="Other">(</span><span class="Identifier">K</span><span class="Other">,</span> <span class="Identifier">V</span><span class="Other">)</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">eqTok</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;=&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span></pre></dt>
 <dd>
@@ -620,6 +642,13 @@ Split <tt class="docutils literal"><span class="pre">delim</span></tt> in two, u
 <dd>
 
 
+
+</dd>
+<a id="dedent,string"></a>
+<dt><pre><span class="Keyword">func</span> <a href="#dedent%2Cstring"><span class="Identifier">dedent</span></a><span class="Other">(</span><span class="Identifier">multiline</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+Uniformly deindent multiline string
 
 </dd>
 <a id="curry1,proc(A,B),A"></a>
@@ -797,7 +826,7 @@ True if for all items in <tt class="docutils literal"><span class="pre">s</span>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-08-27 14:12:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-08-29 10:40:39 UTC</small>
       </div>
     </div>
   </div>
