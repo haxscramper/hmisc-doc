@@ -17,7 +17,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>doc_examples</title>
+<title>kv_transform</title>
 <link rel="stylesheet" type="text/css" href="nimdoc.out.css">
 
 <script type="text/javascript" src="dochack.js"></script>
@@ -71,7 +71,7 @@ function main() {
 <body onload="main()">
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">doc_examples</h1>
+    <h1 class="title">kv_transform</h1>
     <div class="row">
   <div class="three columns">
     <div class="theme-switch-wrapper">
@@ -104,17 +104,17 @@ function main() {
   </ul>
 </li>
 <li>
-  <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
+  <a class="reference reference-toplevel" href="#17" id="67">Macros</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#matchTest.t%2Cstring%2Cstring%2Cuntyped"
-    title="matchTest(inPatt, inInput: string; expr: untyped): untyped"><wbr />match<wbr />Test<span class="attachedType"></span></a></li>
+      <li><a class="reference" href="#kvCall.m%2Cuntyped%2Cuntyped"
+    title="kvCall(head, nodes: untyped): untyped"><wbr />kv<wbr />Call<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#varargsCall.m%2Cuntyped%2Cuntyped"
+    title="varargsCall(head, nodes: untyped): untyped"><wbr />varargs<wbr />Call<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#stringKvTable.m%2Cuntyped"
+    title="stringKvTable(nodes: untyped): untyped"><wbr />string<wbr />Kv<wbr />Table<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#passKVargs.m%2Cuntyped%2Cvarargs%5Buntyped%5D"
+    title="passKVargs(head: untyped; args: varargs[untyped]): untyped"><wbr />pass<wbr />KVargs<span class="attachedType"></span></a></li>
 
-  </ul>
-</li>
-<li>
-  <a class="reference reference-toplevel" href="#19" id="69">Exports</a>
-  <ul class="simple simple-toc-section">
-    
   </ul>
 </li>
 
@@ -127,24 +127,40 @@ function main() {
     <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="hseqdistance.html">hseqdistance</a>
+<a class="reference external" href="hexceptions.html">hexceptions</a>, <a class="reference external" href="halgorithm.html">halgorithm</a>
 </dl></div>
-<div class="section" id="18">
-<h1><a class="toc-backref" href="#18">Templates</a></h1>
+<div class="section" id="17">
+<h1><a class="toc-backref" href="#17">Macros</a></h1>
 <dl class="item">
-<a id="matchTest.t,string,string,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <a href="#matchTest.t%2Cstring%2Cstring%2Cuntyped"><span class="Identifier">matchTest</span></a><span class="Other">(</span><span class="Identifier">inPatt</span><span class="Other">,</span> <span class="Identifier">inInput</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">expr</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="kvCall.m,untyped,untyped"></a>
+<dt><pre><span class="Keyword">macro</span> <a href="#kvCall.m%2Cuntyped%2Cuntyped"><span class="Identifier">kvCall</span></a><span class="Other">(</span><span class="Identifier">head</span><span class="Other">,</span> <span class="Identifier">nodes</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="varargsCall.m,untyped,untyped"></a>
+<dt><pre><span class="Keyword">macro</span> <a href="#varargsCall.m%2Cuntyped%2Cuntyped"><span class="Identifier">varargsCall</span></a><span class="Other">(</span><span class="Identifier">head</span><span class="Other">,</span> <span class="Identifier">nodes</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="stringKvTable.m,untyped"></a>
+<dt><pre><span class="Keyword">macro</span> <a href="#stringKvTable.m%2Cuntyped"><span class="Identifier">stringKvTable</span></a><span class="Other">(</span><span class="Identifier">nodes</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="passKVargs.m,untyped,varargs[untyped]"></a>
+<dt><pre><span class="Keyword">macro</span> <a href="#passKVargs.m%2Cuntyped%2Cvarargs%5Buntyped%5D"><span class="Identifier">passKVargs</span></a><span class="Other">(</span><span class="Identifier">head</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">args</span><span class="Other">:</span> <span class="Identifier">varargs</span><span class="Other">[</span><span class="Identifier">untyped</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
 <dd>
 
 
 
 </dd>
 
-</dl></div>
-<div class="section" id="19">
-<h1><a class="toc-backref" href="#19">Exports</a></h1>
-<dl class="item">
-<a href="hseqdistance.html#fuzzyMatch"><span class="Identifier">fuzzyMatch</span></a>, <a class="reference external" href="hseqdistance.html">hseqdistance</a>, <a href="hseqdistance.html#fuzzyMatch"><span class="Identifier">fuzzyMatch</span></a>, <a href="hseqdistance.html#longestCommonSubsequence"><span class="Identifier">longestCommonSubsequence</span></a>, <a href="hseqdistance.html#longestCommonSubsequence"><span class="Identifier">longestCommonSubsequence</span></a>, <a href="hseqdistance.html#fuzzyMatch"><span class="Identifier">fuzzyMatch</span></a>
 </dl></div>
 
   </div>
@@ -154,7 +170,7 @@ function main() {
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-09-13 20:39:17 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-09-13 20:39:30 UTC</small>
       </div>
     </div>
   </div>
