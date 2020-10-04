@@ -17,7 +17,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>hfile</title>
+<title>htemplates</title>
 <link rel="stylesheet" type="text/css" href="nimdoc.out.css">
 
 <script type="text/javascript" src="dochack.js"></script>
@@ -71,7 +71,7 @@ function main() {
 <body onload="main()">
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">hfile</h1>
+    <h1 class="title">htemplates</h1>
     <div class="row">
   <div class="three columns">
     <div class="theme-switch-wrapper">
@@ -98,16 +98,32 @@ function main() {
     </div>
     <ul class="simple simple-toc" id="toc-list">
 <li>
-  <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
+  <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
   <ul class="simple simple-toc-section">
-    
-  </ul>
-</li>
-<li>
-  <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
-  <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#mktemp%2Cstring%2Cstring"
-    title="mktemp(templ: string = &quot;tmp.XXXXXXXXXX&quot;; dir: string = &quot;/tmp&quot;): string"><wbr />mktemp<span class="attachedType"></span></a></li>
+      <li><a class="reference" href="#tern.t%2Cbool%2Cuntyped%2Cuntyped"
+    title="tern(predicate: bool; tBranch: untyped; fBranch: untyped): untyped"><wbr />tern<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#orElse.t%2Cuntyped%2Cbool%2Cuntyped"
+    title="orElse(value: untyped; predicate: bool; fallback: untyped): untyped"><wbr />or<wbr />Else<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#setIf.t%2Cuntyped%2Cbool%2Cuntyped"
+    title="setIf(lhs: untyped; predicate: bool; value: untyped): untyped"><wbr />set<wbr />If<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#withIt.t%2Cuntyped%2Cuntyped"
+    title="withIt(val, body: untyped): untyped"><wbr />with<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#withResIt.t%2Cuntyped%2Cuntyped"
+    title="withResIt(val, body: untyped): untyped"><wbr />with<wbr />Res<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#splitOnIt.t%2Cseq%5BT%5D%2Cuntyped"
+    title="splitOnIt[T](s: seq[T]; op: untyped): tuple[before, after: seq[T]]"><wbr />split<wbr />On<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#eachIt.t%2Cuntyped%2Cuntyped"
+    title="eachIt(ins, op: untyped): untyped"><wbr />each<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#anyOfIt.t%2Ctyped%2Cuntyped"
+    title="anyOfIt(sequence: typed; predicate: untyped): bool"><wbr />any<wbr />Of<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#allOfIt.t%2Cuntyped%2Cuntyped"
+    title="allOfIt(s: untyped; op: untyped): bool"><wbr />all<wbr />Of<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#getIterOpType.t%2Cuntyped%2Cuntyped"
+    title="getIterOpType(s, op: untyped): untyped"><wbr />get<wbr />Iter<wbr />Op<wbr />Type<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#maxIt.t%2Cuntyped%2Cuntyped"
+    title="maxIt(s: untyped; op: untyped): untyped"><wbr />max<wbr />It<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#noneOfIt.t%2Cuntyped%2Cuntyped"
+    title="noneOfIt(s: untyped; op: untyped): bool"><wbr />none<wbr />Of<wbr />It<span class="attachedType"></span></a></li>
 
   </ul>
 </li>
@@ -118,21 +134,94 @@ function main() {
   <div class="nine columns" id="content">
     <div id="tocRoot"></div>
     <p class="module-desc"></p>
-    <div class="section" id="6">
-<h1><a class="toc-backref" href="#6">Imports</a></h1>
+    <div class="section" id="18">
+<h1><a class="toc-backref" href="#18">Templates</a></h1>
 <dl class="item">
-<a class="reference external" href="helpers.html">helpers</a>
-</dl></div>
-<div class="section" id="12">
-<h1><a class="toc-backref" href="#12">Procs</a></h1>
-<dl class="item">
-<a id="mktemp,string,string"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#mktemp%2Cstring%2Cstring"><span class="Identifier">mktemp</span></a><span class="Other">(</span><span class="Identifier">templ</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;tmp.XXXXXXXXXX&quot;</span><span class="Other">;</span> <span class="Identifier">dir</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;/tmp&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OSError</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">,</span> <span class="Identifier">RegexError</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadDirEffect</span><span class="Other">,</span> <span class="Identifier">WriteDirEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="tern.t,bool,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#tern.t%2Cbool%2Cuntyped%2Cuntyped"><span class="Identifier">tern</span></a><span class="Other">(</span><span class="Identifier">predicate</span><span class="Other">:</span> <span class="Identifier">bool</span><span class="Other">;</span> <span class="Identifier">tBranch</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">fBranch</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+Shorthand for inline if/else.
+<p><strong class="examples_text">Examples:</strong></p>
+<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">a</span> <span class="Other">=</span> <span class="Other">(</span><span class="DecNumber">1</span> <span class="Operator">==</span> <span class="DecNumber">2</span><span class="Other">)</span><span class="Other">.</span><span class="Identifier">tern</span><span class="Other">(</span><span class="StringLit">&quot;99&quot;</span><span class="Other">,</span> <span class="StringLit">&quot;0-&quot;</span><span class="Other">)</span>
+<span class="Identifier">assert</span> <span class="Identifier">a</span> <span class="Operator">==</span> <span class="StringLit">&quot;0-&quot;</span></pre>
+
+</dd>
+<a id="orElse.t,untyped,bool,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#orElse.t%2Cuntyped%2Cbool%2Cuntyped"><span class="Identifier">orElse</span></a><span class="Other">(</span><span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">predicate</span><span class="Other">:</span> <span class="Identifier">bool</span><span class="Other">;</span> <span class="Identifier">fallback</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
 <dd>
 
 
+
+</dd>
+<a id="setIf.t,untyped,bool,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#setIf.t%2Cuntyped%2Cbool%2Cuntyped"><span class="Identifier">setIf</span></a><span class="Other">(</span><span class="Identifier">lhs</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">predicate</span><span class="Other">:</span> <span class="Identifier">bool</span><span class="Other">;</span> <span class="Identifier">value</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="withIt.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#withIt.t%2Cuntyped%2Cuntyped"><span class="Identifier">withIt</span></a><span class="Other">(</span><span class="Identifier">val</span><span class="Other">,</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="withResIt.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#withResIt.t%2Cuntyped%2Cuntyped"><span class="Identifier">withResIt</span></a><span class="Other">(</span><span class="Identifier">val</span><span class="Other">,</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="splitOnIt.t,seq[T],untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#splitOnIt.t%2Cseq%5BT%5D%2Cuntyped"><span class="Identifier">splitOnIt</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">op</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">before</span><span class="Other">,</span> <span class="Identifier">after</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">]</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="eachIt.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#eachIt.t%2Cuntyped%2Cuntyped"><span class="Identifier">eachIt</span></a><span class="Other">(</span><span class="Identifier">ins</span><span class="Other">,</span> <span class="Identifier">op</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="anyOfIt.t,typed,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#anyOfIt.t%2Ctyped%2Cuntyped"><span class="Identifier">anyOfIt</span></a><span class="Other">(</span><span class="Identifier">sequence</span><span class="Other">:</span> <span class="Identifier">typed</span><span class="Other">;</span> <span class="Identifier">predicate</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
+<dd>
+
+Return <tt class="docutils literal"><span class="pre">true</span></tt> if for any of the items in sequence <tt class="docutils literal"><span class="pre">predicate</span></tt> evaluates as <tt class="docutils literal"><span class="pre">true</span></tt>. Otherwise return false.
+
+</dd>
+<a id="allOfIt.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#allOfIt.t%2Cuntyped%2Cuntyped"><span class="Identifier">allOfIt</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">op</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
+<dd>
+
+True if for all items in <tt class="docutils literal"><span class="pre">s</span></tt> predicate <tt class="docutils literal"><span class="pre">op</span></tt> returns true.
+
+</dd>
+<a id="getIterOpType.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#getIterOpType.t%2Cuntyped%2Cuntyped"><span class="Identifier">getIterOpType</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">,</span> <span class="Identifier">op</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+
+
+</dd>
+<a id="maxIt.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#maxIt.t%2Cuntyped%2Cuntyped"><span class="Identifier">maxIt</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">op</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<dd>
+
+Maximize value for all elements in sequence
+
+</dd>
+<a id="noneOfIt.t,untyped,untyped"></a>
+<dt><pre><span class="Keyword">template</span> <a href="#noneOfIt.t%2Cuntyped%2Cuntyped"><span class="Identifier">noneOfIt</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">;</span> <span class="Identifier">op</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
+<dd>
+
+True if for all items in <tt class="docutils literal"><span class="pre">s</span></tt> predicate <tt class="docutils literal"><span class="pre">op</span></tt> returns true.
 
 </dd>
 
@@ -145,7 +234,7 @@ function main() {
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-10-04 20:07:38 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-10-04 20:07:53 UTC</small>
       </div>
     </div>
   </div>
